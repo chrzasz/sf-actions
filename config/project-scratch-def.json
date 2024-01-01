@@ -1,0 +1,46 @@
+{
+    "orgName": "InoMe demo",
+    "edition": "Developer",
+    "hasSampleData": "true",
+    "features": [
+        "EnableSetPasswordInApi",
+        "SalesforceContentUser",
+        "ServiceCloud",
+        "ServiceUser",
+        "MaxApexCodeSize:1",
+        "DevelopmentWave",
+        "PlatformCache",
+        "RecordTypes"
+    ],
+    "settings": {
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "mobileSettings": {
+            "enableS1EncryptedStoragePref2": false
+        },
+        "orgPreferenceSettings": {
+            "s1DesktopEnabled": true
+        },
+        "accountSettings": {
+            "enableAccountTeams": true
+        },
+        "opportunitySettings": {
+            "enableOpportunityTeam": true
+        },
+        "caseSettings": {
+            "emailToCase": true,
+            "webToCase": true
+        },
+        "quoteSettings": {
+            "enableQuote": true,
+            "enableQuotesWithoutOppEnabled": true
+        },
+        "apexSettings": {
+            "enableDisableParallelApexTesting": true
+        },
+        "enhancedNotesSettings": {
+            "enableEnhancedNotes": true
+        }
+    }
+}
