@@ -1,0 +1,57 @@
+{
+    "name": "sf-github-actions",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Salesforce Platform app for GitHub actions",
+    "scripts": {
+        "lint": "eslint **/lwc/**/*.js",
+        "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:apex:local": "prettier --plugin=@prettier/plugin-xml --plugin=prettier-plugin-apex --apex-standalone-parser built-in --apex-standalone-host 127.0.0.1 --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:verify:apex:local": "prettier --plugin=@prettier/plugin-xml --plugin=prettier-plugin-apex --apex-standalone-parser built-in --apex-standalone-host 127.0.0.1 --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "apex:local:start": "start-apex-server --host 127.0.0.1",
+        "apex:local:stop": "stop-apex-server --host 127.0.0.1",
+        "test:unit": "sfdx-lwc-jest --skipApiVersionCheck",
+        "test:unit:watch": "sfdx-lwc-jest --watch --skipApiVersionCheck",
+        "test:unit:debug": "sfdx-lwc-jest --debug --skipApiVersionCheck",
+        "test:unit:coverage": "sfdx-lwc-jest --coverage --skipApiVersionCheck",
+        "postinstall": "husky install"
+    },
+    "lint-staged": {
+        "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
+            "prettier --write"
+        ],
+        "**/lwc/**/*.js": [
+            "eslint"
+        ],
+        "**/lwc/**": [
+            "sfdx-lwc-jest --skipApiVersionCheck -- --bail --findRelatedTests --passWithNoTests"
+        ]
+    },
+    "author": "salesforce.com",
+    "license": "CC0-1.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/trailheadapps/apex-recipes"
+    },
+    "devDependencies": {
+        "@cparra/apexdocs": "^2.19.0",
+        "@lwc/eslint-plugin-lwc": "^1.7.0",
+        "@prettier/plugin-xml": "^3.2.2",
+        "@sa11y/jest": "^6.2.2",
+        "@salesforce/eslint-config-lwc": "^3.5.2",
+        "@salesforce/eslint-plugin-aura": "^2.1.0",
+        "@salesforce/eslint-plugin-lightning": "^1.0.0",
+        "@salesforce/sfdx-lwc-jest": "^3.1.0",
+        "eslint": "^8.56.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-jest": "^27.6.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^15.2.0",
+        "prettier": "^3.1.1",
+        "prettier-plugin-apex": "^2.0.1"
+    },
+    "volta": {
+        "node": "18.17.0"
+    }
+}
